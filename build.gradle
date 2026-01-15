@@ -13,93 +13,100 @@ group = mod_group_id
 repositories {
     mavenLocal()
 
-    // NeoForge 官方仓库
+    // NeoForge official repository
     maven {
-        name = 'neoforge'
-        url = 'https://maven.neoforged.net/releases'
+        name = "neoforge"
+        url = "https://maven.neoforged.net/releases"
     }
 
-    // Create Flywheel 和 tterrag Maven
+    // Create Flywheel and tterrag Maven
     maven {
-        name = 'tterrag maven'
-        url = 'https://maven.tterrag.com/'
-    }
-    maven {
-        name = 'create maven'
-        url = 'https://maven.createmod.net/'
+        name = "tterrag maven"
+        url = "https://maven.tterrag.com/"
     }
 
-    // Devos Maven (Snapshots 也需要时启用)
     maven {
-        name = 'devos maven'
-        url = 'https://mvn.devos.one/snapshots'
+        name = "create maven"
+        url = "https://maven.createmod.net/"
     }
 
-    // Modrinth Maven 仓库
+    // Devos Maven (enable if snapshots are needed)
     maven {
-        name = 'modrinth'
-        url = 'https://api.modrinth.com/maven'
+        name = "devos maven"
+        url = "https://mvn.devos.one/snapshots"
     }
 
-    mavenCentral() // 保留默认中央仓库
+    // Modrinth Maven repository
     maven {
-        // Create, Ponder, Flywheel
-        url = "https://maven.createmod.net"
+        name = "modrinth"
+        url = "https://api.modrinth.com/maven"
     }
+
+    mavenCentral() // Retain the default central repository
+
     maven {
-        // Registrate
+        name = "registrate snapshots"
         url = "https://maven.ithundxr.dev/snapshots"
     }
+
     maven {
-        // ForgeConfigAPIPort
+        name = "ForgeConfigAPIPort maven"
         url = "https://raw.githubusercontent.com/Fuzss/modresources/main/maven/"
     }
+
     maven {
+        name = "MCMirror Modrinth"
         url = "https://mod.mcimirror.top/modrinth"
     }
+
     maven {
+        name = "CurseForge API"
         url = "https://api.curseforge.com"
     }
+
     maven {
-        url = "https://mod.mcimirror.top"
-    }
-    maven {
+        name = "MCMirror CurseForge"
         url = "https://mod.mcimirror.top/curseforge"
     }
+
+    // Multiple addresses for JEI and related files
     maven {
-        // location of the maven that hosts JEI files before January 2023
         name = "Progwml6's maven"
         url = "https://dvs1.progwml6.com/files/maven/"
     }
+
     maven {
-        // location of the maven that hosts JEI files since January 2023
         name = "Jared's maven"
         url = "https://maven.blamejared.com/"
     }
+
     maven {
-        // location of a maven mirror for JEI files, as a fallback
         name = "ModMaven"
         url = "https://modmaven.dev"
     }
+
+    // Maven for Copycats+
     maven {
-        // maven for Copycats+
-        name = "realrobotixCopycats"
+        name = "realrobotix Copycats"
         url = "https://maven.realrobotix.me/copycats"
     }
+
     maven {
-        // Conditional Mixin
         name = "ConditionalMixin"
-        url 'https://maven.fallenbreath.me/releases'
+        url = "https://maven.fallenbreath.me/releases"
     }
+
+    // Maven for Create: Dragons Plus
     maven {
-        // Create: Dragons Plus
         name = "DragonsPlusMinecraft"
-        url "https://maven.dragons.plus/releases"
+        url = "https://maven.dragons.plus/releases"
     }
+
+    // Exclusive filter example: Modrinth
     exclusiveContent {
         forRepository {
             maven {
-                name = "Modrinth"
+                name = "Modrinth Exclusive"
                 url = "https://api.modrinth.com/maven"
             }
         }
@@ -107,25 +114,64 @@ repositories {
             includeGroup "maven.modrinth"
         }
     }
-    maven { url = "https://maven.createmod.net" } // Ponder, Flywheel
-    maven { url = "https://maven.ithundxr.dev/snapshots" } // Registrate
-    maven { url = "https://maven.blamejared.com" } // JEI, Vazkii's Mods
-    maven { url = "https://maven.theillusivec4.top/" } // Curios API
-    maven { url = "https://maven.squiddev.cc" } // CC: Tweaked
-    maven { url = "https://www.cursemaven.com" }
-    maven { url = "https://api.modrinth.com/maven" }
-    maven { url = "https://maven.ftb.dev/releases" } // FTB Mods
-    maven { url = "https://maven.architectury.dev" } // Arch API
-    maven { url = "https://raw.githubusercontent.com/Fuzss/modresources/main/maven" }
-    // NeoForge config api port, needed by ponder
+
+    // Maven for Ponder and Flywheel
     maven {
-        url = "https://jm.gserv.me/repository/maven-public" // JourneyMap
+        name = "Create Maven"
+        url = "https://maven.createmod.net"
+    }
+
+    // Maven for Curios API
+    maven {
+        name = "Curios API Maven"
+        url = "https://maven.theillusivec4.top/"
+    }
+
+    // Maven for CC: Tweaked
+    maven {
+        name = "CC Tweaked"
+        url = "https://maven.squiddev.cc"
+    }
+
+    // CurseMaven repository
+    maven {
+        name = "CurseMaven"
+        url = "https://www.cursemaven.com"
+    }
+
+    // Maven for FTB Mods
+    maven {
+        name = "FTB Mods"
+        url = "https://maven.ftb.dev/releases"
+    }
+
+    // Architectury API Maven repository
+    maven {
+        name = "Architectury API Maven"
+        url = "https://maven.architectury.dev"
+    }
+
+    // ForgeConfigAPIPort Maven repository
+    maven {
+        name = "ForgeConfigAPIPort"
+        url = "https://raw.githubusercontent.com/Fuzss/modresources/main/maven"
+    }
+
+    // Maven configuration for JourneyMap
+    maven {
+        name = "JourneyMap Maven"
+        url = "https://jm.gserv.me/repository/maven-public"
         content {
             includeGroup "info.journeymap"
             includeGroup "mysticdrew"
         }
     }
-    maven { url "https://chocolateminecraft.com/maven" } // Xaero
+
+    // Maven for Xaero's mods
+    maven {
+        name = "Xaero Maven"
+        url = "https://chocolateminecraft.com/maven"
+    }
 }
 
 base {
@@ -146,7 +192,7 @@ neoForge {
         }
 
         server {
-            type = 'server' // 为服务端运行任务指定类型
+            type = 'server' // Specify the type for server launch tasks
             systemProperty 'forge.logging.markers', 'REGISTRIES'
             systemProperty 'forge.logging.console.level', 'debug'
             systemProperty 'forge.enabledGameTestNamespaces', project.property("mod_id")
@@ -154,12 +200,12 @@ neoForge {
         }
 
         gameTestServer {
-            type = 'server' // 测试服务器也需要显式指定类型
+            type = 'server' // Explicitly specify type for test servers
             systemProperty 'forge.enabledGameTestNamespaces', project.property("mod_id")
         }
 
         data {
-            type = 'data' // 为数据生成任务添加运行类型
+            type = 'data' // Add launch type for data generation tasks
             programArguments.addAll '--mod', project.property("mod_id"), '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath()
         }
     }
@@ -174,27 +220,27 @@ neoForge {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 dependencies {
-    // NeoForge 主库依赖
+    // NeoForge main dependency
     implementation "net.neoforged:neoforge:${neoforge_version}"
 
-    // Create Mod 兼容模块和 Flywheel 渲染库
+    // Create Mod compatibility module and Flywheel rendering library
     implementation("com.simibubi.create:create-${create_minecraft_version}:${create_version}")
 
     implementation "dev.engine-room.flywheel:flywheel-neoforge-1.21.1"
 
-    // Ponder 库，确保 Create 的依赖解析
+    // Ponder library for resolving Create dependencies
     implementation "net.createmod.ponder:Ponder-NeoForge-1.21.1:1.0.39"
 
-    // FTB Mods（ftb-chunks、ftb-teams）
+    // FTB Mods (ftb-chunks, ftb-teams)
     implementation "dev.ftb.mods:ftb-chunks-neoforge:2101.1.1"
     implementation "dev.ftb.mods:ftb-teams-neoforge:2101.1.0"
     implementation "dev.ftb.mods:ftb-library-neoforge:2101.1.3"
 
-    // JourneyMap 和 Curios 支持
+    // Support for JourneyMap and Curios
     implementation "maven.modrinth:journeymap:1.21.1-6.0.0-beta.32+neoforge"
     implementation "top.theillusivec4.curios:curios-neoforge:9.2.2+1.21.1"
 
-    // Architectury 和 ForgeConfig API Port
+    // Architectury and ForgeConfig API Port
     implementation "dev.architectury:architectury-neoforge:13.0.8"
     implementation "fuzs.forgeconfigapiport:forgeconfigapiport-common-neoforgeapi:21.1.3"
 }
