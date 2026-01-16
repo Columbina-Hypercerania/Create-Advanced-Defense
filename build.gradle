@@ -226,7 +226,7 @@ dependencies {
     // Create Mod compatibility module and Flywheel rendering library
     implementation("com.simibubi.create:create-${create_minecraft_version}:${create_version}")
 
-    implementation "dev.engine-room.flywheel:flywheel-neoforge-1.21.1"
+    compileOnly("dev.engine-room.flywheel:flywheel-neoforge-api-$minecraft_version:1.0.6")
 
     // Ponder library for resolving Create dependencies
     implementation "net.createmod.ponder:Ponder-NeoForge-1.21.1:1.0.39"
