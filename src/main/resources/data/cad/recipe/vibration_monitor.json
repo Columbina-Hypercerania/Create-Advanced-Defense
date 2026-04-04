@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " S ",
+    "CRC",
+    " I "
+  ],
+  "key": {
+    "S": { "item": "minecraft:sculk_sensor" },
+    "C": { "tag": "c:ingots/copper" },
+    "R": { "item": "minecraft:redstone" },
+    "I": { "item": "minecraft:iron_ingot" }
+  },
+  "result": { "id": "cad:vibration_monitor", "count": 1 }
+}

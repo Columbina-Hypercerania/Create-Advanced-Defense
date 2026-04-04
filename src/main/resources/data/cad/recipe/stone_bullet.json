@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " S ",
+    " S "
+  ],
+  "key": {
+    "S": { "item": "minecraft:cobblestone" }
+  },
+  "result": { "id": "cad:stone_bullet", "count": 8 }
+}

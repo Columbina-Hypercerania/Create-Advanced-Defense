@@ -50,4 +50,7 @@ bin/
 # Minecraft
 runs/
 /.gitattributes
-/.docs
+
+# Docs
+docs/
+.claude/

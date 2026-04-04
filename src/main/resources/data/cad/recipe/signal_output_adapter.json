@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CIC",
+    " R "
+  ],
+  "key": {
+    "R": { "item": "minecraft:redstone_torch" },
+    "C": { "tag": "c:ingots/copper" },
+    "I": { "item": "minecraft:iron_ingot" }
+  },
+  "result": { "id": "cad:signal_output_adapter", "count": 1 }
+}

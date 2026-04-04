@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " I ",
+    "CRC",
+    "III"
+  ],
+  "key": {
+    "I": { "item": "minecraft:iron_ingot" },
+    "C": { "tag": "c:ingots/copper" },
+    "R": { "item": "minecraft:redstone_block" }
+  },
+  "result": { "id": "cad:pulse_radar", "count": 1 }
+}

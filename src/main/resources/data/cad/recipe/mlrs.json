@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ITI",
+    "IRI",
+    " C "
+  ],
+  "key": {
+    "I": { "item": "minecraft:iron_ingot" },
+    "T": { "item": "minecraft:tnt" },
+    "R": { "item": "minecraft:redstone_block" },
+    "C": { "tag": "c:ingots/copper" }
+  },
+  "result": { "id": "cad:mlrs", "count": 1 }
+}

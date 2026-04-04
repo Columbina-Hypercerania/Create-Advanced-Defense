@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "minecraft:gunpowder" },
+    { "item": "minecraft:gunpowder" },
+    { "item": "minecraft:gunpowder" },
+    { "item": "minecraft:gunpowder" },
+    { "item": "minecraft:paper" }
+  ],
+  "result": { "id": "cad:heavy_charge_pack", "count": 2 }
+}

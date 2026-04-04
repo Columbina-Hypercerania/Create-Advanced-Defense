@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " I ",
+    "IRI",
+    " C "
+  ],
+  "key": {
+    "I": { "item": "minecraft:iron_ingot" },
+    "R": { "item": "minecraft:repeater" },
+    "C": { "tag": "c:ingots/copper" }
+  },
+  "result": { "id": "cad:auto_sentry", "count": 1 }
+}

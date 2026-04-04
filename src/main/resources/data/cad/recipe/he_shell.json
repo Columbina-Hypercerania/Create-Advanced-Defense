@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " G ",
+    "IPI",
+    " I "
+  ],
+  "key": {
+    "I": { "item": "minecraft:iron_ingot" },
+    "G": { "item": "minecraft:gunpowder" },
+    "P": { "item": "minecraft:gunpowder" }
+  },
+  "result": { "id": "cad:he_shell", "count": 2 }
+}

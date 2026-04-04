@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " C ",
+    " C "
+  ],
+  "key": {
+    "C": { "tag": "c:nuggets/copper" }
+  },
+  "result": { "id": "cad:copper_bullet", "count": 8 }
+}

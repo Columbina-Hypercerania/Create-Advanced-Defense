@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " R ",
+    "CRC",
+    " I "
+  ],
+  "key": {
+    "R": { "item": "minecraft:redstone_block" },
+    "C": { "tag": "c:ingots/copper" },
+    "I": { "item": "minecraft:iron_ingot" }
+  },
+  "result": { "id": "cad:electronic_jammer", "count": 1 }
+}

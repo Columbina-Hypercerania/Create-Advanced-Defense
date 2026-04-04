@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IBI",
+    "IRI",
+    " C "
+  ],
+  "key": {
+    "I": { "item": "minecraft:iron_ingot" },
+    "B": { "item": "minecraft:iron_block" },
+    "R": { "item": "minecraft:redstone_block" },
+    "C": { "tag": "c:ingots/copper" }
+  },
+  "result": { "id": "cad:steam_cannon", "count": 1 }
+}

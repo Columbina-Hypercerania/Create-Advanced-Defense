@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " B ",
+    " B "
+  ],
+  "key": {
+    "B": { "tag": "c:nuggets/brass" }
+  },
+  "result": { "id": "cad:brass_bullet", "count": 8 }
+}

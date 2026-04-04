@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "DID",
+    "IRI",
+    "DID"
+  ],
+  "key": {
+    "D": { "item": "minecraft:diamond" },
+    "I": { "item": "minecraft:iron_block" },
+    "R": { "item": "minecraft:redstone_block" }
+  },
+  "result": { "id": "cad:electromagnetic_weapon", "count": 1 }
+}

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " M ",
+    "IBI",
+    " I "
+  ],
+  "key": {
+    "I": { "item": "minecraft:iron_ingot" },
+    "M": { "item": "minecraft:magma_cream" },
+    "B": { "item": "minecraft:blaze_powder" }
+  },
+  "result": { "id": "cad:incendiary_shell", "count": 2 }
+}

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " G ",
+    "GDG",
+    " G "
+  ],
+  "key": {
+    "G": { "item": "minecraft:glass" },
+    "D": { "item": "minecraft:diamond" }
+  },
+  "result": { "id": "cad:focusing_lens", "count": 1 }
+}

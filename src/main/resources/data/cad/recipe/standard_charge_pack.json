@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "minecraft:gunpowder" },
+    { "item": "minecraft:gunpowder" },
+    { "item": "minecraft:paper" }
+  ],
+  "result": { "id": "cad:standard_charge_pack", "count": 2 }
+}

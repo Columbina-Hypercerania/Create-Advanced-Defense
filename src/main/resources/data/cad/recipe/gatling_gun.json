@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "III",
+    "IRI",
+    " C "
+  ],
+  "key": {
+    "I": { "item": "minecraft:iron_ingot" },
+    "R": { "item": "minecraft:repeater" },
+    "C": { "tag": "c:ingots/copper" }
+  },
+  "result": { "id": "cad:gatling_gun", "count": 1 }
+}

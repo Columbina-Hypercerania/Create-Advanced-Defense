@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "minecraft:gunpowder" }
+  ],
+  "result": { "id": "cad:light_charge_pack", "count": 2 }
+}

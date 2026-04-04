@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CRC",
+    "RIR",
+    "CRC"
+  ],
+  "key": {
+    "C": { "tag": "c:ingots/copper" },
+    "R": { "item": "minecraft:redstone" },
+    "I": { "item": "minecraft:iron_ingot" }
+  },
+  "result": { "id": "cad:mechanical_compute_unit", "count": 1 }
+}

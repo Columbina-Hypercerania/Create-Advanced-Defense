@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CCC"
+  ],
+  "key": {
+    "C": { "tag": "c:ingots/copper" }
+  },
+  "result": { "id": "cad:data_cable", "count": 8 }
+}

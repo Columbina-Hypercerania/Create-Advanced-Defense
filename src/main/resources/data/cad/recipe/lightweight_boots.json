@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "FPF",
+    "L L"
+  ],
+  "key": {
+    "F": { "item": "minecraft:feather" },
+    "P": { "item": "minecraft:phantom_membrane" },
+    "L": { "item": "minecraft:leather" }
+  },
+  "result": { "id": "cad:lightweight_boots", "count": 1 }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "DGD",
+    "GRG",
+    "IBI"
+  ],
+  "key": {
+    "D": { "item": "minecraft:diamond" },
+    "G": { "item": "minecraft:glass" },
+    "R": { "item": "minecraft:redstone_block" },
+    "I": { "item": "minecraft:iron_block" },
+    "B": { "item": "minecraft:blaze_rod" }
+  },
+  "result": { "id": "cad:laser_weapon", "count": 1 }
+}

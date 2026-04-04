@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "DRD",
+    "RBR",
+    "DRD"
+  ],
+  "key": {
+    "D": { "item": "minecraft:diamond" },
+    "R": { "item": "minecraft:redstone_block" },
+    "B": { "item": "minecraft:blaze_rod" }
+  },
+  "result": { "id": "cad:high_density_compute_core", "count": 1 }
+}

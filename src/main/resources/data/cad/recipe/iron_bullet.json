@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " I ",
+    " I "
+  ],
+  "key": {
+    "I": { "item": "minecraft:iron_nugget" }
+  },
+  "result": { "id": "cad:iron_bullet", "count": 8 }
+}
