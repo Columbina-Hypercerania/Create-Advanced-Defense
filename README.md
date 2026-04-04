@@ -1,2 +1,2 @@
-# Create-Advanced-Defense
-Expanded Create's attack capabilities, offering a variety of new types of equipment
+# Create: Attack & Defense
+Expand Create's combat capabilities with modern attack, defense, and tactical information systems
