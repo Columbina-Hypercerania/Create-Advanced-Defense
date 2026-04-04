@@ -1,274 +1,133 @@
 plugins {
-    id 'java'
     id 'java-library'
-    id 'eclipse'
     id 'idea'
     id 'maven-publish'
-    id 'net.neoforged.moddev' version '2.0.86'
+    id 'net.neoforged.moddev' version '2.0.78'
+}
+
+tasks.named('wrapper', Wrapper).configure {
+    distributionType = Wrapper.DistributionType.BIN
 }
 
 version = mod_version
 group = mod_group_id
 
-repositories {
-    mavenLocal()
-
-    // NeoForge official repository
-    maven {
-        name = "neoforge"
-        url = "https://maven.neoforged.net/releases"
-    }
-
-    // Create Flywheel and tterrag Maven
-    maven {
-        name = "tterrag maven"
-        url = "https://maven.tterrag.com/"
-    }
-
-    maven {
-        name = "create maven"
-        url = "https://maven.createmod.net/"
-    }
-
-    // Devos Maven (enable if snapshots are needed)
-    maven {
-        name = "devos maven"
-        url = "https://mvn.devos.one/snapshots"
-    }
-
-    // Modrinth Maven repository
-    maven {
-        name = "modrinth"
-        url = "https://api.modrinth.com/maven"
-    }
-
-    mavenCentral() // Retain the default central repository
-
-    maven {
-        name = "registrate snapshots"
-        url = "https://maven.ithundxr.dev/snapshots"
-    }
-
-    maven {
-        name = "ForgeConfigAPIPort maven"
-        url = "https://raw.githubusercontent.com/Fuzss/modresources/main/maven/"
-    }
-
-    maven {
-        name = "MCMirror Modrinth"
-        url = "https://mod.mcimirror.top/modrinth"
-    }
-
-    maven {
-        name = "CurseForge API"
-        url = "https://api.curseforge.com"
-    }
-
-    maven {
-        name = "MCMirror CurseForge"
-        url = "https://mod.mcimirror.top/curseforge"
-    }
-
-    // Multiple addresses for JEI and related files
-    maven {
-        name = "Progwml6's maven"
-        url = "https://dvs1.progwml6.com/files/maven/"
-    }
-
-    maven {
-        name = "Jared's maven"
-        url = "https://maven.blamejared.com/"
-    }
-
-    maven {
-        name = "ModMaven"
-        url = "https://modmaven.dev"
-    }
-
-    // Maven for Copycats+
-    maven {
-        name = "realrobotix Copycats"
-        url = "https://maven.realrobotix.me/copycats"
-    }
-
-    maven {
-        name = "ConditionalMixin"
-        url = "https://maven.fallenbreath.me/releases"
-    }
-
-    // Maven for Create: Dragons Plus
-    maven {
-        name = "DragonsPlusMinecraft"
-        url = "https://maven.dragons.plus/releases"
-    }
-
-    // Exclusive filter example: Modrinth
-    exclusiveContent {
-        forRepository {
-            maven {
-                name = "Modrinth Exclusive"
-                url = "https://api.modrinth.com/maven"
-            }
-        }
-        filter {
-            includeGroup "maven.modrinth"
-        }
-    }
-
-    // Maven for Ponder and Flywheel
-    maven {
-        name = "Create Maven"
-        url = "https://maven.createmod.net"
-    }
-
-    // Maven for Curios API
-    maven {
-        name = "Curios API Maven"
-        url = "https://maven.theillusivec4.top/"
-    }
-
-    // Maven for CC: Tweaked
-    maven {
-        name = "CC Tweaked"
-        url = "https://maven.squiddev.cc"
-    }
-
-    // CurseMaven repository
-    maven {
-        name = "CurseMaven"
-        url = "https://www.cursemaven.com"
-    }
-
-    // Maven for FTB Mods
-    maven {
-        name = "FTB Mods"
-        url = "https://maven.ftb.dev/releases"
-    }
-
-    // Architectury API Maven repository
-    maven {
-        name = "Architectury API Maven"
-        url = "https://maven.architectury.dev"
-    }
-
-    // ForgeConfigAPIPort Maven repository
-    maven {
-        name = "ForgeConfigAPIPort"
-        url = "https://raw.githubusercontent.com/Fuzss/modresources/main/maven"
-    }
-
-    // Maven configuration for JourneyMap
-    maven {
-        name = "JourneyMap Maven"
-        url = "https://jm.gserv.me/repository/maven-public"
-        content {
-            includeGroup "info.journeymap"
-            includeGroup "mysticdrew"
-        }
-    }
-
-    // Maven for Xaero's mods
-    maven {
-        name = "Xaero Maven"
-        url = "https://chocolateminecraft.com/maven"
-    }
-}
-
 base {
-    archivesName = project.property("mod_id")
+    archivesName = "DnDesires-$minecraft_version"
 }
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)
 
 neoForge {
-    version = neoforge_version
+    version = project.neo_version
+
+    parchment {
+        mappingsVersion = project.parchment_mappings_version
+        minecraftVersion = project.minecraft_version
+    }
 
     runs {
         client {
-            type = 'client'
-            systemProperty 'forge.logging.markers', 'REGISTRIES'
-            systemProperty 'forge.logging.console.level', 'debug'
-            systemProperty 'forge.enabledGameTestNamespaces', project.mod_id
+            client()
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
         }
-
         server {
-            type = 'server' // Specify the type for server launch tasks
-            systemProperty 'forge.logging.markers', 'REGISTRIES'
-            systemProperty 'forge.logging.console.level', 'debug'
-            systemProperty 'forge.enabledGameTestNamespaces', project.property("mod_id")
+            server()
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
             programArgument '--nogui'
         }
-
         gameTestServer {
-            type = 'server' // Explicitly specify type for test servers
-            systemProperty 'forge.enabledGameTestNamespaces', project.property("mod_id")
+            type = "gameTestServer"
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
         }
-
         data {
-            type = 'data' // Add launch type for data generation tasks
-            programArguments.addAll '--mod', project.property("mod_id"), '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath()
+            data()
+            programArguments.addAll '--mod',
+                    project.mod_id, '--all', '--output',
+                    file('src/generated/resources/').getAbsolutePath(), '--existing',
+                    file('src/main/resources/').getAbsolutePath(), '--existing-mod', 'create'
+        }
+        configureEach {
+            systemProperty 'forge.logging.markers', 'REGISTRIES'
+            logLevel = org.slf4j.event.Level.DEBUG
         }
     }
-
     mods {
-        "${project.property("mod_id")}" {
-            sourceSet sourceSets.main
+        "${mod_id}" {
+            sourceSet(sourceSets.main)
         }
     }
 }
 
-sourceSets.main.resources { srcDir 'src/generated/resources' }
+sourceSets.main.resources {
+    srcDir 'src/generated/resources'
+    exclude '.cache/'
+}
+
+configurations {
+    runtimeClasspath.extendsFrom localRuntime
+}
+
+repositories {
+    maven { url = "https://maven.blamejared.com" } // JEI, Vazkii's Mods
+    maven { url = "https://modmaven.dev" }
+    maven { url = "https://maven.squiddev.cc" } // CC: Tweaked
+    maven { url = "https://api.modrinth.com/maven" }
+    maven { url = "https://www.cursemaven.com" }
+    maven { url = "https://mvn.devos.one/snapshots" } // Registrate
+    maven { url = "https://raw.githubusercontent.com/Fuzss/modresources/main/maven" } // NeoForge config api port, needed by ponder
+    maven { url = "https://maven.createmod.net" } // Ponder, Flywheel
+    maven { url = "https://maven.architectury.dev" } // Arch API
+    mavenLocal()
+}
 
 dependencies {
-    // NeoForge main dependency
-    implementation "net.neoforged:neoforge:${neoforge_version}"
+    implementation "net.neoforged:neoforge:${neo_version}"
 
-    // Create Mod compatibility module and Flywheel rendering library
-    implementation("com.simibubi.create:create-${create_minecraft_version}:${create_version}")
+    implementation("com.simibubi.create:create-${minecraft_version}:${create_version}") { transitive = false }
+    implementation("net.createmod.ponder:Ponder-NeoForge-${minecraft_version}:${ponder_version}")
+    compileOnly("dev.engine-room.flywheel:flywheel-neoforge-api-${minecraft_version}:${flywheel_version}")
+    runtimeOnly("dev.engine-room.flywheel:flywheel-neoforge-${minecraft_version}:${flywheel_version}")
+    implementation("com.tterrag.registrate:Registrate:${registrate_version}")
 
-    compileOnly("dev.engine-room.flywheel:flywheel-neoforge-api-$minecraft_version:1.0.6")
+    compileOnly "mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"
+    compileOnly "mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}"
+    implementation("mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}")
 
-    // Ponder library for resolving Create dependencies
-    implementation "net.createmod.ponder:Ponder-NeoForge-1.21.1:1.0.39"
+    compileOnly("top.theillusivec4.curios:curios-neoforge:${curios_version}+${minecraft_version}:api")
+    runtimeOnly("top.theillusivec4.curios:curios-neoforge:${curios_version}+${minecraft_version}")
 
-    // FTB Mods (ftb-chunks, ftb-teams)
-    implementation "dev.ftb.mods:ftb-chunks-neoforge:2101.1.1"
-    implementation "dev.ftb.mods:ftb-teams-neoforge:2101.1.0"
-    implementation "dev.ftb.mods:ftb-library-neoforge:2101.1.3"
+    implementation("maven.modrinth:sodium:mc${minecraft_version}-${sodium_version}-neoforge")
+    implementation("maven.modrinth:jade:jBPaSUDN")
 
-    // Support for JourneyMap and Curios
-    implementation "maven.modrinth:journeymap:1.21.1-6.0.0-beta.32+neoforge"
-    implementation "top.theillusivec4.curios:curios-neoforge:9.2.2+1.21.1"
+    //compileOnly("cc.tweaked:cc-tweaked-1.21.1-core-api:1.116.1")
+    //compileOnly("cc.tweaked:cc-tweaked-1.21.1-forge-api:1.116.1")
+    //runtimeOnly("cc.tweaked:cc-tweaked-1.21.1-forge:1.116.1")
 
-    // Architectury and ForgeConfig API Port
-    implementation "dev.architectury:architectury-neoforge:13.0.8"
-    implementation "fuzs.forgeconfigapiport:forgeconfigapiport-common-neoforgeapi:21.1.3"
+    implementation("maven.modrinth:capix:jf7f0Xii")
 }
 
-tasks.withType(ProcessResources).configureEach {
+var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
     var replaceProperties = [
-            "minecraft_version"       : project.property("minecraft_version"),
-            "minecraft_version_range" : project.property("minecraft_version_range"),
-            "neoforge_version"        : project.property("neoforge_version"),
-            "neoforge_version_range"  : project.property("neoforge_version_range"),
-            "loader_version_range"    : project.property("loader_version_range"),
-            "mod_id"                  : project.property("mod_id"),
-            "mod_name"                : project.property("mod_name"),
-            "mod_version"             : project.property("mod_version"),
-            "mod_authors"             : project.property("mod_authors"),
-            "mod_description"         : project.property("mod_description"),
-            "create_version_range"    : project.property("create_version_range"),
-    ]
+            minecraft_version      : minecraft_version,
+            minecraft_version_range: minecraft_version_range,
+            neo_version            : neo_version,
+            neo_version_range      : neo_version_range,
+            loader_version_range   : loader_version_range,
+            mod_id                 : mod_id,
+            mod_name               : mod_name,
+            mod_license            : mod_license,
+            mod_version            : mod_version,
+            mod_authors            : mod_authors,
+            mod_description        : mod_description]
     inputs.properties replaceProperties
-
-    filesMatching(['META-INF/neoforge.mods.toml']) {
-        expand replaceProperties + [project: project]
-    }
+    expand replaceProperties
+    from "src/main/templates"
+    into "build/generated/sources/modMetadata"
 }
 
-tasks.withType(JavaCompile).configureEach {
-    options.encoding = 'UTF-8'
-}
+sourceSets.main.resources.srcDir generateModMetadata
+neoForge.ideSyncTask generateModMetadata
 
 publishing {
     publications {
@@ -284,5 +143,12 @@ publishing {
 }
 
 tasks.withType(JavaCompile).configureEach {
-    options.compilerArgs << '-parameters'
+    options.encoding = 'UTF-8'
+}
+
+idea {
+    module {
+        downloadSources = true
+        downloadJavadoc = true
+    }
 }
