@@ -26,6 +26,7 @@ public class CreateAttackDefense {
         REGISTRATE.registerEventListeners(modEventBus);
 
         CADCreativeTabs.register(modEventBus);
+        REGISTRATE.setCreativeTab(CADCreativeTabs.MAIN);
         CADBlocks.register();
         CADItems.register();
         CADBlockEntityTypes.register();
